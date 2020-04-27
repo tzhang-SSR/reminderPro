@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+#time-logo{
+    width: 40px;
+    height: 40px;
+}
 .title {
     text-align: center;
     font-size: 26px;
@@ -16,6 +20,27 @@ input {
 
 .reminder-form {
     padding: 5px;
+    justify-content: center;
+    text-align: center;
+}
+
+#error-text {
+    text-align: left;
+    color: red;
+    display: none;
+    margin: 5px;
+}
+
+
+/* Remidner List Items*/
+.list-group-item{
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #F7F8FA;
+}
+
+.reminder-list{
+    padding: 20px;
 }
 
 .list-item {
@@ -25,4 +50,39 @@ input {
 .delete-button {
     float: right;
     padding-left: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+.list-item-deadline {
+    display: inline-block;
+    width: 225px;
+}
+
+.list-item-countdown {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 10px;
+    display: inline-block;
 }

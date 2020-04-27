@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { addReminder, deleteReminder, clearReminders } from '../actions'
 import '../index.css'
 import moment from 'moment'
+import ReminderList from './ReminderList'
+import time from '../images/time.png'
 
 class App extends Component {
     constructor(props) {
@@ -13,56 +15,68 @@ class App extends Component {
         }
     }
 
+    componentDidMount() {
+        let currTime = moment().add(1, 'd').format('YYYY-MM-DDTHH:mm');
+        document.querySelector(".date-input").value = String(currTime)
+        this.setState({
+            text: this.state.text,
+            dueDate: String(currTime)
+        })
+    }
+
     addReminder() {
-        //console.log('this',this)
-        this.props.addReminder(this.state.text, this.state.dueDate)
+        if (this.checkEmpty())
+            this.props.addReminder(this.state.text, this.state.dueDate)
     }
 
     deleteReminder(id) {
         this.props.deleteReminder(id)
     }
 
-    renderReminders() {
-        const { reminders } = this.props
-        return (
-            <ul className="list-group col-sm-4">
-                {
-                    reminders.map(reminder => {
-                        return (
-                            <li key={reminder.id} className="list-group-item">
-                                <div className="list-item">
-                                    <div>{reminder.text}</div>
-                                    <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
-                                </div>
-                                <div className="list-item delete-button"
-                                    onClick={() => this.deleteReminder(reminder.id)}>&#x2715;</div>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        )
+    checkEmpty() {
+        const textInput = document.querySelector(".text-input");
+        const errorText = document.getElementById("error-text");
+        if (textInput.value == "") {
+            errorText.style.display = "block";
+            textInput.style.border = "solid 2px red";
+            return false
+        } else {
+            errorText.style.display = "none";
+            textInput.style.border = "";
+            return true
+        }
     }
 
     render() {
         return (
             <div className="App">
                 <div className="title">
-                    Reminder Pro
+                    Reminder Pro <img id="time-logo" alt="time-logo" src={time} /> 
                 </div>
-                <div className="form-inline reminder-form">
-                    <div className="form-group">
-                        <input className="form-control" placeholder=""
+                <div className="reminder-form">
+                    <div className="inline-block">
+                        <input className="form-control text-input" placeholder="write something here..."
                             onChange={event => this.setState({ text: event.target.value })} />
-                        <input className="form-control" type="datetime-local" onChange={event => this.setState({ dueDate: event.target.value })} />
+                        <div id="error-text">*This field cannnot be empty</div>
                     </div>
-
+                    <div className="inline-block">
+                        <input className="form-control date-input" type="datetime-local" onChange={event => this.setState({ dueDate: event.target.value })} />
+                        <button type="submit" className="btn btn-success" onClick={() => this.addReminder()}>Add Reminder</button>
+                    </div>
                 </div>
-                <div className="d-inline">
-                    <button type="button" className="btn btn-success" onClick={() => this.addReminder()}>Add Reminder</button>
-                    <button type="button" className="btn btn-danger" onClick={() => this.props.clearReminders()}>Clear Reminder</button>
+                {/* {this.renderReminders()} */}
+                <ul className="list-group col-sm-4">
+                    {
+                        this.props.reminders.map((reminder, index) => {
+                            return (
+                                <ReminderList key={index} reminder={reminder} deleteReminder={this.props.deleteReminder} />
+                            )
+                        })
+                    }
+                </ul>
+                <div>
+                    <button type="button" className="btn btn-danger" onClick={() => { if (window.confirm('Are you sure you wish to delete all items?')) this.props.clearReminders() }}>Clear All</button>
                 </div>
-                {this.renderReminders()}
             </div>
         )
     }
