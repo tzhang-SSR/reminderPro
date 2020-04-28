@@ -43,7 +43,7 @@ export default class ReminderList extends Component {
         return (
             <li key={this.props.reminder.id} className="list-group-item shadow-sm reminder-list">
                 <div className="list-item">
-                    <div>{this.props.reminder.text}</div>
+                    <div className="list-item-content"><p>{this.props.reminder.text}</p></div>
                     <div className="list-item-deadline"><span id="deadline-text">DUE: </span>{this.formatTime(this.props.reminder.dueDate)}</div>
                     <div className="list-item-countdown">
                         <span id="list-item-day">{this.addZero(this.state.days)}:</span>

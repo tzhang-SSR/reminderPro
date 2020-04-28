@@ -1,20 +1,30 @@
-.App {
-    padding-top: 20px;
+body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.input-wrapper {
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#time-logo{
-    width: 40px;
-    height: 40px;
-}
-.title {
-    text-align: center;
-    font-size: 26px;
+#time-logo {
+    width: 45px;
+    height: 45px;
 }
 
-input {
+#title1 {
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+    background: linear-gradient(45deg, #eee, #ee0000);
+}
+
+.text-input,
+.date-input {
     margin: 5px;
 }
 
@@ -31,15 +41,20 @@ input {
     margin: 5px;
 }
 
-
 /* Remidner List Items*/
-.list-group-item{
-    margin: 10px;
-    border-radius: 10px;
-    background-color: #F7F8FA;
+.output-wrapper {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
 }
 
-.reminder-list{
+.list-group-item {
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.reminder-list {
     padding: 20px;
 }
 
@@ -73,6 +88,11 @@ input {
     transform: scale(1.1);
 }
 
+.list-item-content {
+    overflow-wrap: break-word;
+    max-height: 100px;
+    max-width: 300px;
+}
 
 .list-item-deadline {
     display: inline-block;
@@ -85,4 +105,9 @@ input {
     font-size: 20px;
     padding-left: 10px;
     display: inline-block;
+}
+
+.reminder-wrapper, .delete-wrapper{
+    justify-content: center;
+    margin: 0;
 }
