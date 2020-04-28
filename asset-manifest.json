@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/reminderPro/static/css/main.6a9657b8.chunk.css",
-    "main.js": "/reminderPro/static/js/main.27385e98.chunk.js",
-    "main.js.map": "/reminderPro/static/js/main.27385e98.chunk.js.map",
+    "main.css": "/reminderPro/static/css/main.4b15f6f5.chunk.css",
+    "main.js": "/reminderPro/static/js/main.ffbc6953.chunk.js",
+    "main.js.map": "/reminderPro/static/js/main.ffbc6953.chunk.js.map",
     "runtime-main.js": "/reminderPro/static/js/runtime-main.efb5383d.js",
     "runtime-main.js.map": "/reminderPro/static/js/runtime-main.efb5383d.js.map",
     "static/js/2.890a3838.chunk.js": "/reminderPro/static/js/2.890a3838.chunk.js",
     "static/js/2.890a3838.chunk.js.map": "/reminderPro/static/js/2.890a3838.chunk.js.map",
     "index.html": "/reminderPro/index.html",
-    "precache-manifest.48e7939ac3fed494da8d6ab56bd29867.js": "/reminderPro/precache-manifest.48e7939ac3fed494da8d6ab56bd29867.js",
+    "precache-manifest.fd9ead76c6c9a8159d131be04ea0dcdc.js": "/reminderPro/precache-manifest.fd9ead76c6c9a8159d131be04ea0dcdc.js",
     "service-worker.js": "/reminderPro/service-worker.js",
-    "static/css/main.6a9657b8.chunk.css.map": "/reminderPro/static/css/main.6a9657b8.chunk.css.map",
+    "static/css/main.4b15f6f5.chunk.css.map": "/reminderPro/static/css/main.4b15f6f5.chunk.css.map",
     "static/js/2.890a3838.chunk.js.LICENSE.txt": "/reminderPro/static/js/2.890a3838.chunk.js.LICENSE.txt",
     "static/media/time.png": "/reminderPro/static/media/time.753b7f10.png"
   },
   "entrypoints": [
     "static/js/runtime-main.efb5383d.js",
     "static/js/2.890a3838.chunk.js",
-    "static/css/main.6a9657b8.chunk.css",
-    "static/js/main.27385e98.chunk.js"
+    "static/css/main.4b15f6f5.chunk.css",
+    "static/js/main.ffbc6953.chunk.js"
   ]
 }
