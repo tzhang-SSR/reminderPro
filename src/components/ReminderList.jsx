@@ -8,7 +8,10 @@ export default class ReminderList extends Component {
             days: 0,
             hours: 0,
             minutes: 0,
-            seconds: 0
+            seconds: 0,
+            value: props.reminder.text,
+            id: props.reminder.id,
+            edit: false
         }
     }
 
@@ -21,7 +24,6 @@ export default class ReminderList extends Component {
     getTimeUntil(deadline) {
         let currentDate = new Date()
         const time = Date.parse(deadline) - Date.parse(currentDate)
-
         const seconds = Math.floor((time / 1000) % 60)
         const minutes = Math.floor((time / 1000 / 60) % 60)
         const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
@@ -38,12 +40,46 @@ export default class ReminderList extends Component {
         return moment(deadline).format('LLL')
     }
 
+    edit() {
+        this.setState({ edit: this.state.edit !== false })
+    }
+
 
     render() {
         return (
-            <li key={this.props.reminder.id} className="list-group-item shadow-sm reminder-list">
+            <li key={this.state.id} className="list-group-item shadow-sm reminder-list">
                 <div className="list-item">
-                    <div className="list-item-content"><p>{this.props.reminder.text}</p></div>
+                    {
+                        this.state.edit === true
+                        && <div className="list-item-content">
+                            <textarea
+                                value={this.state.value}
+                                className="list-item-content-edit"
+                                autoFocus
+                                onFocus={event => {
+                                    event.target.value = this.state.value
+                                    this.setState({ backup: this.state.value })
+                                }}
+                                onChange={event => {
+                                    this.setState({ value: event.target.value })
+                                }}
+                                onBlur={() => {
+                                    this.setState({ edit: false })
+                                    this.props.updateReminder(this.state.id, this.state.value)
+                                }}
+                                onKeyUp={event => {
+                                    if (event.key === 'Escape') {
+                                        this.setState({ edit: false, value: this.state.backup })
+                                    }
+                                }}
+                            />
+                        </div>
+                        || <div className="list-item-content" onClick={() => {
+                            this.setState({ edit: this.state.edit !== true })
+                        }}>
+                            <p>{this.state.value}</p>
+                        </div>
+                    }
                     <div className="list-item-deadline"><span id="deadline-text">DUE: </span>{this.formatTime(this.props.reminder.dueDate)}</div>
                     <div className="list-item-countdown">
                         <span id="list-item-day">{this.addZero(this.state.days)}:</span>
@@ -54,7 +90,7 @@ export default class ReminderList extends Component {
                 </div>
                 <div className="list-item delete-button"
                     onClick={() => this.props.deleteReminder(this.props.reminder.id)}>
-                        <i className="fa fa-times-circle hvr-grow"></i>
+                    <i className="fa fa-times-circle hvr-grow"></i>
                 </div>
             </li>
         )

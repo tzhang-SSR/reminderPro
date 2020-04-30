@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addReminder, deleteReminder, clearReminders } from '../actions'
+import { addReminder, deleteReminder, clearReminders, updateReminder } from '../actions'
 import '../index.css'
 import moment from 'moment'
 import ReminderList from './ReminderList'
@@ -39,6 +39,10 @@ class App extends Component {
         this.props.deleteReminder(id)
     }
 
+    updateReminder(id, text) {
+        updateReminder(id, text)
+    }
+
     checkEmpty() {
         const textInput = document.querySelector(".text-input");
         const errorText = document.getElementById("error-text");
@@ -72,26 +76,36 @@ class App extends Component {
                                     <input className="form-control date-input" type="datetime-local" onChange={event => this.setState({ dueDate: event.target.value })} />
                                     <button type="submit" className="btn btn-success" onClick={() => this.addReminder()}>Add Reminder</button>
                                 </div>
+                                {!this.props.reminders[0] &&
+                                    <div className="inline-block tip-text1">
+                                        Tips: Let's create your first reminder by using the button above.
+                                </div>
+                                }
                             </div>
                         </div>
-                        <div className="output-wrapper col-md-7">
-                            <div>
-                                <div className="row reminder-wrapper">
-                                    <ul className="list-group">
-                                        {
-                                            this.props.reminders.map((reminder, index) => {
-                                                return (
-                                                    <ReminderList key={index} reminder={reminder} deleteReminder={this.props.deleteReminder} />
-                                                )
-                                            })
-                                        }
-                                    </ul>
-                                </div>
-                                <div className="row delete-wrapper">
-                                    <button type="button" className="btn btn-danger" onClick={() => { if (window.confirm('Are you sure you wish to delete all items?')) this.props.clearReminders() }}>Clear All</button>
+                        {this.props.reminders[0]
+                            ? <div className="output-wrapper col-md-7">
+                                <div>
+                                    <div className="row reminder-wrapper">
+                                        <ul className="list-group">
+                                            {
+                                                this.props.reminders.map((reminder, index) => {
+                                                    return (
+                                                        <ReminderList key={index} reminder={reminder} deleteReminder={this.props.deleteReminder} updateReminder={this.props.updateReminder} />
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div className="row delete-wrapper">
+                                        <button type="button" className="btn btn-danger" onClick={() => { if (window.confirm('Are you sure you wish to delete all items?')) this.props.clearReminders() }}>Clear All</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            : <div className="col-md-7 tip-text2">
+                                <em>*Your reminders will appear here</em>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -105,4 +119,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addReminder, deleteReminder, clearReminders })(App);
+export default connect(mapStateToProps, { addReminder, deleteReminder, clearReminders, updateReminder })(App);
