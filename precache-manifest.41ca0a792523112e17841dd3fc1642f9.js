@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a295dc8bf47d7a8b63d8d8f736acb767",
+    "revision": "f9d2584f61970d6333e5fa63a692f9e0",
     "url": "/reminderPro/index.html"
   },
   {
-    "revision": "4eebde5784e0506fb1dd",
-    "url": "/reminderPro/static/css/main.4b15f6f5.chunk.css"
+    "revision": "71404641b63402b565cf",
+    "url": "/reminderPro/static/css/main.c6bfa377.chunk.css"
   },
   {
-    "revision": "53e6f02407b792f000d2",
-    "url": "/reminderPro/static/js/2.890a3838.chunk.js"
+    "revision": "0ac505cdaca2b584cab7",
+    "url": "/reminderPro/static/js/2.c6cb6f44.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/reminderPro/static/js/2.890a3838.chunk.js.LICENSE.txt"
+    "url": "/reminderPro/static/js/2.c6cb6f44.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4eebde5784e0506fb1dd",
-    "url": "/reminderPro/static/js/main.ffbc6953.chunk.js"
+    "revision": "71404641b63402b565cf",
+    "url": "/reminderPro/static/js/main.88958d26.chunk.js"
   },
   {
     "revision": "1bdc7190dff5e1df7ef0",
