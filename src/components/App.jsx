@@ -83,8 +83,8 @@ class App extends Component {
                                 }
                             </div>
                         </div>
-                        {this.props.reminders[0]
-                            ? <div className="output-wrapper col-md-7">
+                        {this.props.reminders[0] 
+                        ? <div className="output-wrapper col-md-7">
                                 <div>
                                     <div className="row reminder-wrapper">
                                         <ul className="list-group">

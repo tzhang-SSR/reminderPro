@@ -89,7 +89,7 @@ export default class ReminderList extends Component {
                     </div>
                 </div>
                 <div className="list-item delete-button"
-                    onClick={() => this.props.deleteReminder(this.props.reminder.id)}>
+                    onClick={() => this.props.deleteReminder(this.state.id)}>
                     <i className="fa fa-times-circle hvr-grow"></i>
                 </div>
             </li>

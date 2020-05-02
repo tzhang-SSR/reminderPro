@@ -21,27 +21,18 @@ const updateById = (state = [], action) => {
     let { text, id } = action;
     console.log('actionid', action.id)
     console.log('state', state)
-    state.forEach(e => {
-        return{
-            id: e.id,
-            text: e.text,
-            dueDate: e.dueDate
+
+    const reminder = state.map(e => {
+        if (e.id == id) {
+            return {
+                ...e,
+                text: text
+            }
         }
+        return e
     })
 
-    const reminders = state.forEach(e => {
-        if (e.id == id) {
-            return{
-                id,
-                text,
-                dueDate: e.dueDate
-            }
-        }else{
-            return e
-        }
-    })
-    console.log('reminders', reminders)
-    return reminders
+    return [...state, reminder]
 }
 
 const reminders = (state = [], action) => {
@@ -61,7 +52,15 @@ const reminders = (state = [], action) => {
             bake_cookie('reminders', reminders)
             return reminders
         case UPDATE_REMINDER:
-            reminders = updateById(state, action)
+            reminders = state.map(reminder => {
+                if (reminder.id == action.id) {
+                    return {
+                        ...reminder,
+                        text: action.text
+                    }
+                }
+                return reminder
+            })
             bake_cookie('reminders', reminders)
             return reminders
         default:
