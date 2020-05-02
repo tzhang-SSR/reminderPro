@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f9d2584f61970d6333e5fa63a692f9e0",
+    "revision": "2b41528307f72d7b6e0db6739c4dc45b",
     "url": "/reminderPro/index.html"
   },
   {
-    "revision": "71404641b63402b565cf",
+    "revision": "0bd98522d7e118630c2c",
     "url": "/reminderPro/static/css/main.c6bfa377.chunk.css"
   },
   {
-    "revision": "0ac505cdaca2b584cab7",
-    "url": "/reminderPro/static/js/2.c6cb6f44.chunk.js"
+    "revision": "7774d440ebdd91588fbf",
+    "url": "/reminderPro/static/js/2.bf445132.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/reminderPro/static/js/2.c6cb6f44.chunk.js.LICENSE.txt"
+    "url": "/reminderPro/static/js/2.bf445132.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "71404641b63402b565cf",
-    "url": "/reminderPro/static/js/main.88958d26.chunk.js"
+    "revision": "0bd98522d7e118630c2c",
+    "url": "/reminderPro/static/js/main.127bd334.chunk.js"
   },
   {
     "revision": "1bdc7190dff5e1df7ef0",
